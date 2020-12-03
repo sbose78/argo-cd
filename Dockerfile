@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=debian:10-slim
+ARG BASE_IMAGE=registry.access.redhat.com/ubi8/ubi-minimal
 ####################################################################################################
 # Builder image
 # Initial stage which pulls prepares build dependencies and CLI tooling we need for our final image
@@ -41,7 +41,16 @@ FROM $BASE_IMAGE as argocd-base
 
 USER root
 
-RUN echo 'deb http://deb.debian.org/debian buster-backports main' >> /etc/apt/sources.list
+RUN echo 'deb http://deb.debian.org/debian buster-backports main' >> /etc/sources.list
+
+# This makes groupadd command available
+RUN microdnf install shadow-utils -y
+
+# Add tini
+
+ENV TINI_VERSION v0.18.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
 
 RUN groupadd -g 999 argocd && \
     useradd -r -u 999 -g argocd argocd && \
@@ -49,9 +58,9 @@ RUN groupadd -g 999 argocd && \
     chown argocd:0 /home/argocd && \
     chmod g=u /home/argocd && \
     chmod g=u /etc/passwd && \
-    apt-get update && \
-    apt-get install -y git git-lfs python3-pip tini gpg && \
-    apt-get clean && \
+    microdnf update && \
+    microdnf install -y git git-lfs python3-pip gpg && \
+    microdnf clean all && \
     pip3 install awscli==1.18.80 && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -98,12 +107,13 @@ ADD ["ui/", "."]
 
 ARG ARGO_VERSION=latest
 ENV ARGO_VERSION=$ARGO_VERSION
-RUN NODE_ENV='production' yarn build
+RUN NODE_OPTIONS=--max_old_space_size=8192
+RUN yarn upgrade
 
 ####################################################################################################
 # Argo CD Build stage which performs the actual build of Argo CD binaries
 ####################################################################################################
-FROM golang:1.14.12 as argocd-build
+FROM openshift/origin-release:golang-1.14 as argocd-build
 
 COPY --from=builder /usr/local/bin/packr /usr/local/bin/packr
 
@@ -127,6 +137,6 @@ RUN if [ "$BUILD_ALL_CLIS" = "true" ] ; then \
 ####################################################################################################
 # Final image
 ####################################################################################################
-FROM argocd-base
+FROM registry.access.redhat.com/ubi8/ubi-minimal
 COPY --from=argocd-build /go/src/github.com/argoproj/argo-cd/dist/argocd* /usr/local/bin/
 COPY --from=argocd-ui ./src/dist/app /shared/app
