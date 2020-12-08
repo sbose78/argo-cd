@@ -126,6 +126,7 @@ RUN go mod download
 
 # Perform the build
 COPY . .
+# RUN go mod vendor
 RUN make cli-local server controller repo-server argocd-util
 
 ARG BUILD_ALL_CLIS=true
