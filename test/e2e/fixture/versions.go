@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/argoproj/argo-cd/util/errors"
+	"github.com/argoproj/argo-cd/internal/util/errors"
 )
 
 type Versions struct {

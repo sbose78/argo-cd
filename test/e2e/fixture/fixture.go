@@ -22,16 +22,16 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
 
-	"github.com/argoproj/argo-cd/common"
+	"github.com/argoproj/argo-cd/internal/common"
+	. "github.com/argoproj/argo-cd/internal/util/errors"
+	grpcutil "github.com/argoproj/argo-cd/internal/util/grpc"
+	"github.com/argoproj/argo-cd/internal/util/io"
+	"github.com/argoproj/argo-cd/internal/util/rand"
+	"github.com/argoproj/argo-cd/internal/util/settings"
 	argocdclient "github.com/argoproj/argo-cd/pkg/apiclient"
 	sessionpkg "github.com/argoproj/argo-cd/pkg/apiclient/session"
 	"github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
 	appclientset "github.com/argoproj/argo-cd/pkg/client/clientset/versioned"
-	. "github.com/argoproj/argo-cd/util/errors"
-	grpcutil "github.com/argoproj/argo-cd/util/grpc"
-	"github.com/argoproj/argo-cd/util/io"
-	"github.com/argoproj/argo-cd/util/rand"
-	"github.com/argoproj/argo-cd/util/settings"
 )
 
 const (

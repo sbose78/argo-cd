@@ -9,10 +9,10 @@ import (
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
 
+	"github.com/argoproj/argo-cd/internal/util/errors"
 	. "github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
 	"github.com/argoproj/argo-cd/test/e2e/fixture"
 	. "github.com/argoproj/argo-cd/test/e2e/fixture/app"
-	"github.com/argoproj/argo-cd/util/errors"
 )
 
 // TestSyncOptionsValidateFalse verifies we can disable validation during kubectl apply, using the

@@ -11,7 +11,7 @@ import (
 	context "context"
 	fmt "fmt"
 	v1alpha1 "github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
-	apiclient "github.com/argoproj/argo-cd/reposerver/apiclient"
+	apiclient "github.com/argoproj/argo-cd/pkg/reposerver/apiclient"
 	_ "github.com/gogo/protobuf/gogoproto"
 	github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
 	proto "github.com/gogo/protobuf/proto"

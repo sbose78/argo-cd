@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
+	. "github.com/argoproj/argo-cd/internal/util/errors"
 	. "github.com/argoproj/argo-cd/test/e2e/fixture"
-	. "github.com/argoproj/argo-cd/util/errors"
 )
 
 func TestClusterList(t *testing.T) {

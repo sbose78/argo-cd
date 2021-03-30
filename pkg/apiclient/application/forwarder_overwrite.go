@@ -6,7 +6,7 @@ import (
 	"fmt"
 	gohttp "net/http"
 
-	"github.com/argoproj/argo-cd/util/kube"
+	"github.com/argoproj/argo-cd/internal/util/kube"
 
 	"github.com/argoproj/pkg/grpc/http"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"

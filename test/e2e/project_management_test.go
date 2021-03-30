@@ -15,10 +15,10 @@ import (
 	"k8s.io/apimachinery/pkg/fields"
 	"k8s.io/utils/pointer"
 
-	"github.com/argoproj/argo-cd/common"
+	"github.com/argoproj/argo-cd/internal/common"
+	"github.com/argoproj/argo-cd/internal/util/argo"
 	"github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
 	"github.com/argoproj/argo-cd/test/e2e/fixture"
-	"github.com/argoproj/argo-cd/util/argo"
 )
 
 func assertProjHasEvent(t *testing.T, a *v1alpha1.AppProject, message string, reason string) {

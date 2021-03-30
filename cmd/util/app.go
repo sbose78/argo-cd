@@ -15,12 +15,12 @@ import (
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/utils/pointer"
 
-	"github.com/argoproj/argo-cd/common"
+	"github.com/argoproj/argo-cd/internal/common"
+	"github.com/argoproj/argo-cd/internal/util/config"
+	"github.com/argoproj/argo-cd/internal/util/errors"
+	"github.com/argoproj/argo-cd/internal/util/text/label"
 	"github.com/argoproj/argo-cd/pkg/apis/application"
 	argoappv1 "github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
-	"github.com/argoproj/argo-cd/util/config"
-	"github.com/argoproj/argo-cd/util/errors"
-	"github.com/argoproj/argo-cd/util/text/label"
 )
 
 type AppOptions struct {

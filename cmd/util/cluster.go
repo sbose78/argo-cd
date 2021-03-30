@@ -12,8 +12,8 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
 
+	"github.com/argoproj/argo-cd/internal/util/errors"
 	argoappv1 "github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
-	"github.com/argoproj/argo-cd/util/errors"
 )
 
 func PrintKubeContexts(ca clientcmd.ConfigAccess) {

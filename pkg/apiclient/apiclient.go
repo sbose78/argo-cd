@@ -27,7 +27,14 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"github.com/argoproj/argo-cd/common"
+	"github.com/argoproj/argo-cd/internal/common"
+	"github.com/argoproj/argo-cd/internal/util/env"
+	grpc_util "github.com/argoproj/argo-cd/internal/util/grpc"
+	argoio "github.com/argoproj/argo-cd/internal/util/io"
+	"github.com/argoproj/argo-cd/internal/util/kube"
+	"github.com/argoproj/argo-cd/internal/util/localconfig"
+	oidcutil "github.com/argoproj/argo-cd/internal/util/oidc"
+	tls_util "github.com/argoproj/argo-cd/internal/util/tls"
 	accountpkg "github.com/argoproj/argo-cd/pkg/apiclient/account"
 	applicationpkg "github.com/argoproj/argo-cd/pkg/apiclient/application"
 	certificatepkg "github.com/argoproj/argo-cd/pkg/apiclient/certificate"
@@ -41,13 +48,6 @@ import (
 	versionpkg "github.com/argoproj/argo-cd/pkg/apiclient/version"
 	"github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
 	argoappv1 "github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
-	"github.com/argoproj/argo-cd/util/env"
-	grpc_util "github.com/argoproj/argo-cd/util/grpc"
-	argoio "github.com/argoproj/argo-cd/util/io"
-	"github.com/argoproj/argo-cd/util/kube"
-	"github.com/argoproj/argo-cd/util/localconfig"
-	oidcutil "github.com/argoproj/argo-cd/util/oidc"
-	tls_util "github.com/argoproj/argo-cd/util/tls"
 )
 
 const (

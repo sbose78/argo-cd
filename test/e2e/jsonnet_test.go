@@ -7,10 +7,10 @@ import (
 	"github.com/argoproj/gitops-engine/pkg/utils/kube"
 	"github.com/stretchr/testify/assert"
 
+	. "github.com/argoproj/argo-cd/internal/util/errors"
 	. "github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
 	. "github.com/argoproj/argo-cd/test/e2e/fixture"
 	. "github.com/argoproj/argo-cd/test/e2e/fixture/app"
-	. "github.com/argoproj/argo-cd/util/errors"
 )
 
 func TestJsonnetAppliedCorrectly(t *testing.T) {

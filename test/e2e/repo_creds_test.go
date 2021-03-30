@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
+	. "github.com/argoproj/argo-cd/internal/util/errors"
 	"github.com/argoproj/argo-cd/test/e2e/fixture"
 	. "github.com/argoproj/argo-cd/test/e2e/fixture/app"
-	. "github.com/argoproj/argo-cd/util/errors"
 )
 
 // make sure you cannot create an app from a private repo without set-up

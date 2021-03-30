@@ -29,16 +29,16 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"k8s.io/utils/pointer"
 
-	"github.com/argoproj/argo-cd/common"
+	"github.com/argoproj/argo-cd/internal/common"
+	. "github.com/argoproj/argo-cd/internal/util/argo"
+	. "github.com/argoproj/argo-cd/internal/util/errors"
+	"github.com/argoproj/argo-cd/internal/util/io"
+	"github.com/argoproj/argo-cd/internal/util/settings"
 	applicationpkg "github.com/argoproj/argo-cd/pkg/apiclient/application"
 	repositorypkg "github.com/argoproj/argo-cd/pkg/apiclient/repository"
 	. "github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
 	. "github.com/argoproj/argo-cd/test/e2e/fixture"
 	. "github.com/argoproj/argo-cd/test/e2e/fixture/app"
-	. "github.com/argoproj/argo-cd/util/argo"
-	. "github.com/argoproj/argo-cd/util/errors"
-	"github.com/argoproj/argo-cd/util/io"
-	"github.com/argoproj/argo-cd/util/settings"
 )
 
 const (

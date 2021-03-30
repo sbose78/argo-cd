@@ -13,7 +13,7 @@ import (
 	"k8s.io/apimachinery/pkg/labels"
 	"k8s.io/apimachinery/pkg/runtime"
 
-	"github.com/argoproj/argo-cd/common"
+	"github.com/argoproj/argo-cd/internal/common"
 	"github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
 	apps "github.com/argoproj/argo-cd/pkg/client/clientset/versioned/fake"
 	appclient "github.com/argoproj/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1"

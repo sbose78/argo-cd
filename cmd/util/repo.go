@@ -3,7 +3,7 @@ package util
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/argoproj/argo-cd/common"
+	"github.com/argoproj/argo-cd/internal/common"
 	appsv1 "github.com/argoproj/argo-cd/pkg/apis/application/v1alpha1"
 )
 
